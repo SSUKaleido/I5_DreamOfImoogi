@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
     public GameObject LeftNote;
     public GameObject RightNote;
 
+    public AudioSource music;
+    float MusicStartTime = 2.0f; // caution!!! bluetooth headphone sync
+
     //int beat = 1;
     float timeElapsed = 0.0f; 
     bool musicStart = true;
@@ -31,6 +34,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        
         PlayerPrefs.SetInt("Streak", 0);
 
         health = GameObject.Find("HealthBarManager");
@@ -39,13 +43,22 @@ public class GameManager : MonoBehaviour
 
     }
 
+    private bool musicStarted = false;
+
     private void Update()
     {
+        
         if (musicStart == true)
         {
             timeElapsed += Time.deltaTime;
             if( spawnEnd == false) {
                 spawnNote();
+            }
+            if (timeElapsed >= MusicStartTime && !musicStarted)
+            {
+                music.Play();
+                Debug.Log("db0");
+                musicStarted = true;
             }
         }          
     }
@@ -58,14 +71,13 @@ public class GameManager : MonoBehaviour
         spawnEnd = false;
 
         // 2. read text file 
-        TextAsset textFile = Resources.Load("stage") as TextAsset;
+        TextAsset textFile = Resources.Load("Sheet") as TextAsset;
         StringReader stringReader = new StringReader(textFile.text);
 
         while (stringReader != null)
         {
 
             string line = stringReader.ReadLine();
-            Debug.Log(line);
 
             if (line == null)
             {
@@ -73,10 +85,10 @@ public class GameManager : MonoBehaviour
             }
 
             Spawn spawnData = new Spawn();
-            spawnData.arrow = int.Parse(line.Split(',')[0]);
-            spawnData.delay = float.Parse(line.Split(',')[1]);
-            spawnData.noteType = int.Parse(line.Split(',')[2]);
-            spawnData.length = float.Parse(line.Split(',')[3]);
+            spawnData.arrow = int.Parse(line.Split('\t')[0]);
+            spawnData.delay = float.Parse(line.Split('\t')[1]);
+            spawnData.noteType = int.Parse(line.Split('\t')[2]);
+            spawnData.length = float.Parse(line.Split('\t')[3]);
             spawnList.Add(spawnData);
         }
         stringReader.Close();
@@ -111,6 +123,7 @@ public class GameManager : MonoBehaviour
             spawnIndex++;
            
         }
+       
         if (spawnIndex == spawnList.Count)
         {
             spawnEnd = true;
