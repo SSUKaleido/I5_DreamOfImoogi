@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PPText : MonoBehaviour
 {
     new public string name;
+    
 
     void Update()
     {

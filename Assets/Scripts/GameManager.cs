@@ -6,6 +6,7 @@ using System.IO;
 public class GameManager : MonoBehaviour
 {
     int streak = 0; //combo
+    public int totalHit = 0; 
     GameObject health;
 
     GameObject spawner;
@@ -15,7 +16,7 @@ public class GameManager : MonoBehaviour
     public GameObject RightNote;
 
     public AudioSource music;
-    float MusicStartTime = 2.0f; // caution!!! bluetooth headphone sync
+    float MusicStartTime = 1.8f; // caution!!! bluetooth headphone sync
 
     //int beat = 1;
     float timeElapsed = 0.0f; 
@@ -71,7 +72,7 @@ public class GameManager : MonoBehaviour
         spawnEnd = false;
 
         // 2. read text file 
-        TextAsset textFile = Resources.Load("Sheet") as TextAsset;
+        TextAsset textFile = Resources.Load("Sheet2") as TextAsset;
         StringReader stringReader = new StringReader(textFile.text);
 
         while (stringReader != null)
@@ -117,7 +118,7 @@ public class GameManager : MonoBehaviour
                     Instantiate(RightNote, spawner.transform.position, Quaternion.identity);
                     break;
                 default:
-                    Debug.LogError("Invalid note arrow type: " + noteArrow);
+                    //Debug.LogError("Invalid note arrow type: " + noteArrow);
                     break;
             }
             spawnIndex++;
@@ -143,6 +144,7 @@ public class GameManager : MonoBehaviour
         //n보다 작으면
         health.GetComponent<UserInterface>().Hit();
         streak++;
+        totalHit++;
         UpdateGUI();
     }
 
