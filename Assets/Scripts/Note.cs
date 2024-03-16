@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Note : MonoBehaviour
 {
+    int currentStage = 3;
     Rigidbody2D rb;
     float speed = 10;
 
@@ -22,14 +23,19 @@ public class Note : MonoBehaviour
 
     void Update()
     {
-        /*
-        if (!changeSpeed && (gm.GetComponent<GameManager>().totalHit >= 10) && (gm.GetComponent<GameManager>().totalHit % 10 == 0))
+
+        if (currentStage == 2)
         {
-            speed += 3;
-            rb.velocity = new Vector2(-speed, 0);
-            Debug.Log(speed);
-            changeSpeed = true;
+            /*
+            if (!changeSpeed && (gm.GetComponent<GameManager>().totalHit >= 10) && (gm.GetComponent<GameManager>().totalHit % 10 == 0))
+            {
+                speed += 3;
+                rb.velocity = new Vector2(-speed, 0);
+                Debug.Log(speed);
+                changeSpeed = true;
+            }
+            */
         }
-        */
+
     }
 }

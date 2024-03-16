@@ -5,6 +5,8 @@ using System.IO;
 
 public class GameManager : MonoBehaviour
 {
+    int currentStage = 3 ;
+
     int streak = 0; //combo
     public int totalHit = 0; 
     GameObject health;
@@ -16,17 +18,20 @@ public class GameManager : MonoBehaviour
     public GameObject RightNote;
 
     public AudioSource music;
-    float MusicStartTime = 1.8f; // caution!!! bluetooth headphone sync
+    float MusicStartTime = 1.3f; // caution!!! bluetooth headphone sync
 
     //int beat = 1;
     float timeElapsed = 0.0f; 
     bool musicStart = true;
+    private bool musicStarted = false;
 
     public List<Spawn> spawnList;
     public int spawnIndex;
     public bool spawnEnd;
-    
-    
+
+    private bool cameraRotated = false;
+
+
     private void Awake()
     {
         spawnList = new List<Spawn>();
@@ -35,16 +40,12 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        
+        music.Stop();
         PlayerPrefs.SetInt("Streak", 0);
-
         health = GameObject.Find("HealthBarManager");
         spawner = GameObject.Find("SpawnPoint");
-
-
     }
 
-    private bool musicStarted = false;
 
     private void Update()
     {
@@ -58,8 +59,18 @@ public class GameManager : MonoBehaviour
             if (timeElapsed >= MusicStartTime && !musicStarted)
             {
                 music.Play();
-                Debug.Log("db0");
                 musicStarted = true;
+            }
+
+            if (timeElapsed > 10f && timeElapsed < 20f && currentStage == 3 && !cameraRotated)
+            {
+                RotateCamera180Degrees();
+                cameraRotated = true;
+            }
+            // timeElapsed가 20초 이후에는 다시 원래 각도로 회전
+            else if (timeElapsed >= 20f && currentStage == 3)
+            {
+                ResetCameraRotation();
             }
         }          
     }
@@ -70,9 +81,22 @@ public class GameManager : MonoBehaviour
         spawnList.Clear();
         spawnIndex = 0;
         spawnEnd = false;
+        TextAsset textFile = null;
 
         // 2. read text file 
-        TextAsset textFile = Resources.Load("Sheet2") as TextAsset;
+        if (currentStage == 1)
+        {
+            textFile = Resources.Load("Sheet1") as TextAsset;
+        }
+        else if (currentStage == 2)
+        {
+            textFile = Resources.Load("Sheet2") as TextAsset;
+        }
+        else if (currentStage == 3)
+        {
+            textFile = Resources.Load("Sheet3") as TextAsset;
+        }
+
         StringReader stringReader = new StringReader(textFile.text);
 
         while (stringReader != null)
@@ -167,5 +191,21 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("Streak", streak);
     }
 
+    void RotateCamera180Degrees()
+    {
+        // 현재 카메라의 회전값을 가져옴
+        Vector3 currentRotation = Camera.main.transform.rotation.eulerAngles;
 
+        // z축 회전값을 180도로 설정하여 카메라를 회전
+        Camera.main.transform.rotation = Quaternion.Euler(currentRotation.x, currentRotation.y, currentRotation.z + 180f);
+    }
+
+    void ResetCameraRotation()
+    {
+        // 현재 카메라의 회전값을 가져옴
+        Vector3 currentRotation = Camera.main.transform.rotation.eulerAngles;
+
+        // z축 회전값을 원래 각도로 설정하여 카메라를 회전
+        Camera.main.transform.rotation = Quaternion.Euler(currentRotation.x, currentRotation.y, 0.0f);
+    }
 }
