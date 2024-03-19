@@ -12,8 +12,6 @@ public class Activator : MonoBehaviour
     bool active = false;
     GameObject note, gm;
 
-    public bool creatMode;
-
     public GameObject UpNote;
     public GameObject DownNote;
     public GameObject LeftNote;
@@ -27,30 +25,8 @@ public class Activator : MonoBehaviour
     
     void Update()
     {
-        if (creatMode)
+        if (Input.GetKeyDown(leftKey) && active)
         {
-            if (Input.GetKeyDown(leftKey))
-            {
-                Instantiate(LeftNote,transform.position, Quaternion.identity);
-            }
-            else if (Input.GetKeyDown(rightKey))
-            {
-                Instantiate(RightNote,transform.position, Quaternion.identity);
-            }
-            else if (Input.GetKeyDown(upKey))
-            {
-                Instantiate(UpNote,transform.position, Quaternion.identity);
-            }
-            else if (Input.GetKeyDown(downKey))
-            {
-                Instantiate(DownNote,transform.position, Quaternion.identity);
-            }
-
-        }
-        else
-        {
-            if (Input.GetKeyDown(leftKey) && active)
-            {
                 if (CheckNoteTag("LeftNote"))
                 {
                     Destroy(note);
@@ -64,9 +40,9 @@ public class Activator : MonoBehaviour
                     Debug.Log("Miss");
                     active = false;
                 }               
-            }
-            else if (Input.GetKeyDown(rightKey) && active)
-            {
+        }
+        else if (Input.GetKeyDown(rightKey) && active)
+        {
                 if (CheckNoteTag("RightNote"))
                 {
                     Destroy(note);
@@ -80,9 +56,9 @@ public class Activator : MonoBehaviour
                     Debug.Log("Miss");
                     active = false;
                 }
-            }
-            else if (Input.GetKeyDown(upKey) && active)
-            {
+        }
+        else if (Input.GetKeyDown(upKey) && active)
+        {
                 if (CheckNoteTag("UpNote"))
                 {
                     Destroy(note);
@@ -96,9 +72,9 @@ public class Activator : MonoBehaviour
                     Debug.Log("Miss");
                     active = false;
                 }
-            }
-            else if (Input.GetKeyDown(downKey) && active)
-            {
+        }
+        else if (Input.GetKeyDown(downKey) && active)
+        {
                 if (CheckNoteTag("DownNote"))
                 {
                     Destroy(note);
@@ -112,24 +88,17 @@ public class Activator : MonoBehaviour
                     Debug.Log("Miss");
                     active = false;
                 }
-            }
-            /*
-             * else if (Input.GetKeyDown(downKey) && active && CheckNoteTag("DownNote"))
-            {
-                Destroy(note);
-                gm.GetComponent<GameManager>().AddStreak();
-                active = false;
-            }
-            else if ((Input.GetKeyDown(upKey)||Input.GetKeyDown(downKey)|| Input.GetKeyDown(leftKey)|| Input.GetKeyDown(rightKey)) && !active)
-            {
-                Destroy(note);
-                gm.GetComponent<GameManager>().ResetStreak();
-                Debug.Log("Miss");
-                active = false;
-            }*/
-
-        }
+        }        
+            
+        
     }
+    
+    
+    
+    
+    
+    
+    
     void OnTriggerEnter2D(Collider2D col)
     {
         active = true;

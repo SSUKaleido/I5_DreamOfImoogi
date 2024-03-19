@@ -8,7 +8,7 @@ public class Note : MonoBehaviour
     Rigidbody2D rb;
     float speed = 10;
 
-    bool changeSpeed = false;
+    //bool changeSpeed = false;
     GameObject gm;
 
     void Awake()

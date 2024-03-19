@@ -1130,6 +1130,51 @@ RectTransform:
   m_AnchoredPosition: {x: 15.200012, y: 0}
   m_SizeDelta: {x: 1.2179524, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1700781125
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1700781127}
+  - component: {fileID: 1700781126}
+  m_Layer: 0
+  m_Name: StageGimmick
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1700781126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700781125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51bdb0b9dc233de4e989ed0a2ceffac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gm: {fileID: 1777233068}
+--- !u!4 &1700781127
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700781125}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.6909448, y: 0.027971625, z: 0.5424197}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1763640667
 GameObject:
   m_ObjectHideFlags: 0
@@ -1255,9 +1300,10 @@ MonoBehaviour:
   DownNote: {fileID: 1029635532034624366, guid: c8f80447d73c24b42b148b37b5000089, type: 3}
   LeftNote: {fileID: 5076910326788741250, guid: 69e702d964eff5c4aaf2588c37fad303, type: 3}
   RightNote: {fileID: 5316691484552050928, guid: ba2834033892fb1478d98bdbc3ca9903, type: 3}
-  music: {fileID: 59096746}
   spawnIndex: 0
   spawnEnd: 0
+  music: {fileID: 59096746}
+  timeElapsed: 0
 --- !u!61 &1777233071
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1878,3 +1924,4 @@ SceneRoots:
   - {fileID: 2037929886}
   - {fileID: 2092718211}
   - {fileID: 59096747}
+  - {fileID: 1700781127}
