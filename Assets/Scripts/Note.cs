@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Note : MonoBehaviour
 {
-    int currentStage = 3;
+    int currentStage = 1;
     Rigidbody2D rb;
     float speed = 10;
 
-    //bool changeSpeed = false;
+    private bool changeSpeed = false;
     GameObject gm;
 
     void Awake()
@@ -23,18 +23,21 @@ public class Note : MonoBehaviour
 
     void Update()
     {
-
         if (currentStage == 2)
         {
-            /*
-            if (!changeSpeed && (gm.GetComponent<GameManager>().totalHit >= 10) && (gm.GetComponent<GameManager>().totalHit % 10 == 0))
+            float tm = gm.GetComponent<GameManager>().timeElapsed;
+
+            if (tm >= 5.0f && !changeSpeed)
             {
-                speed += 3;
-                rb.velocity = new Vector2(-speed, 0);
-                Debug.Log(speed);
+                speed += 10;
                 changeSpeed = true;
+                rb.velocity = new Vector2(-speed, 0);         
             }
-            */
+            else if (tm >= 20.0f)
+            {
+                speed = 10;
+                rb.velocity = new Vector2(-speed, 0);
+            }
         }
 
     }

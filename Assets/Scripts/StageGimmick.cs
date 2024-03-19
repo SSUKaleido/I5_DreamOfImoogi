@@ -32,8 +32,6 @@ public class StageGimmick : MonoBehaviour
             if ( tm >= 3.0f && !mobInterrupt)
             {
                 mob.transform.Translate(Vector3.up * Speed * Time.deltaTime);
-                //mobInterrupt = true;
- 
                 if (mob.transform.position.y >= -4f || mob.transform.position.y <= -10f)
                 {
                     Speed *= -1; // 이동 속도의 부호를 바꿔서 반대 방향으로 이동하도록 함
