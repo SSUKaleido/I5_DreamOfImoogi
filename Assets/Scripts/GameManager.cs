@@ -7,7 +7,7 @@ using UnityEditor.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     /* stage control */
-    int currentStage = 3 ;
+    int currentStage = 1 ;
     GameObject trick;
 
     /* HP system & Combo */

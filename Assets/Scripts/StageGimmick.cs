@@ -15,8 +15,6 @@ public class StageGimmick : MonoBehaviour
     /* stage 1*/
     public GameObject mob;
     private bool mobInterrupt = false;
-    Vector3 dst1 = new Vector3(0, -4, -3);
-    Vector3 dst2 = new Vector3(0, -8, -3);
     private float Speed = 2.0f;
 
     /* stage 2*/
@@ -40,7 +38,7 @@ public class StageGimmick : MonoBehaviour
                 {
                     Speed *= -1; // 이동 속도의 부호를 바꿔서 반대 방향으로 이동하도록 함
                 }
-                else if (mob.transform.position.y <= -9.5f && tm >= 20.0f)
+                else if (mob.transform.position.y <= -9.7f && tm >= 20.0f)
                 {              
                     mobInterrupt = true;
                 }
