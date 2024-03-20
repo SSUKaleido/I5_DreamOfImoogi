@@ -7,7 +7,7 @@ using UnityEditor.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     /* stage control */
-    int currentStage = 1 ;
+    int currentStage = 3 ;
     GameObject trick;
 
     /* HP system & Combo */
@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
 
     /* music delay */
     public AudioSource music;
-    float MusicStartTime = 1.3f; // sync
+    float MusicStartTime = 1.5f; // sync
     bool musicStart = true;
     private bool musicStarted = false;
 
