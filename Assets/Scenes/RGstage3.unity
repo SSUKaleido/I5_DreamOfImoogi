@@ -150,7 +150,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7291ff78f9edc30498488e4589b77dc7, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a61cd1bfa22d61647bceca54e4d0acfc, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -498,9 +498,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 1000
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 1000
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -679,9 +679,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 1
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1545,6 +1545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d245c5c350a5794aa0aa5dfbf8d713f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentStage: 0
   totalHit: 0
   UpNote: {fileID: 3144371705701361234, guid: 8d52080cf9b4dbf4e85374f3109f1fe7, type: 3}
   DownNote: {fileID: 1029635532034624366, guid: c8f80447d73c24b42b148b37b5000089, type: 3}
@@ -1714,7 +1715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerHealthBar: {fileID: 571027552}
   EnemyMaxHealthBar: {fileID: 290620932}
-  Damage: 0.1
+  Damage: 5
 --- !u!4 &1822109169
 Transform:
   m_ObjectHideFlags: 0

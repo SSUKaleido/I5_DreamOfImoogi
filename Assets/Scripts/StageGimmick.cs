@@ -10,7 +10,7 @@ public class StageGimmick : MonoBehaviour
 {
 
     public GameObject gm;
-    int currentStage = 1;
+    int currentStage = 0;
 
     /* stage 1*/
     public GameObject mob;
@@ -22,27 +22,40 @@ public class StageGimmick : MonoBehaviour
     /* stage 3*/
     private bool cameraRotated = false;
 
-
     public void Gimmick(){
         float tm = gm.GetComponent<GameManager>().timeElapsed;
-
+        this.currentStage = gm.GetComponent<GameManager>().currentStage;
 
         if (currentStage == 1)
         {
-            if ( tm >= 3.0f && !mobInterrupt)
+            if ( tm <= 47.0f && tm >= 22.0f && !mobInterrupt)
             {
                 mob.transform.Translate(Vector3.up * Speed * Time.deltaTime);
                 if (mob.transform.position.y >= -4f || mob.transform.position.y <= -10f)
                 {
                     Speed *= -1; // 이동 속도의 부호를 바꿔서 반대 방향으로 이동하도록 함
                 }
-                else if (mob.transform.position.y <= -9.7f && tm >= 20.0f)
+                else if (mob.transform.position.y <= -9.7f && tm >= 44.0f)
                 {              
                     mobInterrupt = true;
                 }
             }
-            
-            
+            if (tm >= 55.0f && tm <= 57.0f)
+            {
+                mobInterrupt = false;               
+            }
+            if (tm >= 60.0f && !mobInterrupt)
+            {
+                mob.transform.Translate(Vector3.up * Speed * Time.deltaTime);
+                if (mob.transform.position.y >= -4f || mob.transform.position.y <= -10f)
+                {
+                    Speed *= -1; // 이동 속도의 부호를 바꿔서 반대 방향으로 이동하도록 함
+                }
+                else if (mob.transform.position.y <= -9.7f && tm >= 72.0f)
+                {
+                    mobInterrupt = true;
+                }
+            }
         }
         else if (currentStage == 2)
         {
@@ -50,12 +63,12 @@ public class StageGimmick : MonoBehaviour
         }
         else if (currentStage == 3)
         {
-            if (tm > 5f && tm < 7f && !cameraRotated)
+            if (tm > 100.0f && tm < 110.0f && !cameraRotated)
             {
                 RotateCamera180Degrees();
                 cameraRotated = true;
             }
-            else if (tm >= 7f)
+            else if (tm >= 110.0f)
             {
                 ResetCameraRotation();
             }
