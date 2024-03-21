@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Note : MonoBehaviour
 {
-    int currentStage = 3;
+    int currentStage = 0;
     Rigidbody2D rb;
     float speed = 10;
 
@@ -24,11 +24,12 @@ public class Note : MonoBehaviour
 
     void Update()
     {
+        this.currentStage = gm.GetComponent<GameManager>().currentStage;
         if (currentStage == 2)
         {
             float tm = gm.GetComponent<GameManager>().timeElapsed;
 
-            if (tm >= 45.0f && !changeSpeed1)
+            if (tm >= 40.0f && !changeSpeed1)
             {
                 speed += 10;
                 changeSpeed1 = true;

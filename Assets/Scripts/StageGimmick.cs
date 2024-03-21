@@ -10,7 +10,7 @@ public class StageGimmick : MonoBehaviour
 {
 
     public GameObject gm;
-    int currentStage = 3;
+    int currentStage = 0;
 
     /* stage 1*/
     public GameObject mob;
@@ -22,10 +22,9 @@ public class StageGimmick : MonoBehaviour
     /* stage 3*/
     private bool cameraRotated = false;
 
-
     public void Gimmick(){
         float tm = gm.GetComponent<GameManager>().timeElapsed;
-
+        this.currentStage = gm.GetComponent<GameManager>().currentStage;
 
         if (currentStage == 1)
         {

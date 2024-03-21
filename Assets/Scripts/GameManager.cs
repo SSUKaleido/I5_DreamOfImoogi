@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     /* stage control */
-    int currentStage = 3 ;
+    public int currentStage = 0;
     GameObject trick;
 
     /* HP system & Combo */
@@ -37,6 +37,23 @@ public class GameManager : MonoBehaviour
     
     private void Awake()
     {
+        timeElapsed = 0.0f;
+        Scene scene = SceneManager.GetActiveScene();
+        if (SceneManager.GetActiveScene().name == "RGstage1")
+        {
+            currentStage = 1;
+        }
+        else if (SceneManager.GetActiveScene().name == "RGstage2")
+        {
+            currentStage = 2;
+        }
+        else if (SceneManager.GetActiveScene().name == "RGstage3")
+        {
+            currentStage = 3;
+        }
+
+        Debug.Log("Gm _ currentStage is" + currentStage);
+
         spawnList = new List<Spawn>();
         ReadSpawnFile();
     }
