@@ -25,7 +25,7 @@ public class interaction2 : MonoBehaviour
             Tkey.SetActive(true);
             Tactive = true;
             if (Input.GetKeyDown(KeyCode.T))
-            { SceneManager.LoadScene("start"); }
+            { SceneManager.LoadScene("RGstage3"); }
 
         }
         else

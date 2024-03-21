@@ -20,7 +20,7 @@ public class distance_checker2 : MonoBehaviour
     void Update()
     {
         dist = Vector2.Distance(player.transform.position, distance_checker.transform.position);
-        if (dist < 7)
+        if (dist < 8)
         {
             Tkey.SetActive(true);
             Tactive = true;
