@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.ReorderableList;
 using UnityEngine;
+using UnityEngine.UIElements;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class playermovement : MonoBehaviour
@@ -59,8 +60,9 @@ public class playermovement : MonoBehaviour
     private void FlipCharacter() {
 
         facingright = !facingright;
-        float nowpos = transform.position.y;
 
+
+        float nowpos = transform.position.x;
         transform.Rotate(0f, nowpos, 0f);
     }
 }

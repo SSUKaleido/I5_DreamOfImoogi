@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class interaction2 : MonoBehaviour
+public class distance_checker2 : MonoBehaviour
 {
     public GameObject player;
     public GameObject distance_checker;
@@ -25,7 +25,7 @@ public class interaction2 : MonoBehaviour
             Tkey.SetActive(true);
             Tactive = true;
             if (Input.GetKeyDown(KeyCode.T))
-            { SceneManager.LoadScene("start"); }
+            { SceneManager.LoadScene("interaction2"); }
 
         }
         else

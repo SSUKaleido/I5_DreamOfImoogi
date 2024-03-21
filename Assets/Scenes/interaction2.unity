@@ -231,6 +231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 691920769}
   distance_checker: {fileID: 582462392}
+  Tkey: {fileID: 1119115178}
 --- !u!1001 &691920767
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -449,7 +450,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: e504f280762edfa4c9dcb3c090502b9d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: e504f280762edfa4c9dcb3c090502b9d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -487,6 +488,11 @@ PrefabInstance:
 --- !u!4 &945585036 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: e504f280762edfa4c9dcb3c090502b9d, type: 3}
+  m_PrefabInstance: {fileID: 945585035}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1119115178 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -2253911629886400664, guid: e504f280762edfa4c9dcb3c090502b9d, type: 3}
   m_PrefabInstance: {fileID: 945585035}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1573198806

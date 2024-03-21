@@ -65,21 +65,27 @@
     <Compile Include="Assets\click.cs" />
     <Compile Include="Assets\scene3_assets\block3.cs" />
     <Compile Include="Assets\Scripts\Activator.cs" />
+    <Compile Include="Assets\distance_checker1.cs" />
     <Compile Include="Assets\scene1_assets\in_out.cs" />
     <Compile Include="Assets\Scripts\UserInterface.cs" />
     <Compile Include="Assets\Scripts\StageGimmick.cs" />
+    <Compile Include="Assets\intro_animate.cs" />
     <Compile Include="Assets\interaction2.cs" />
     <Compile Include="Assets\npc_moving.cs" />
     <Compile Include="Assets\samplescene_assets\parallax.cs" />
+    <Compile Include="Assets\bo.cs" />
     <Compile Include="Assets\block.cs" />
     <Compile Include="Assets\click_start.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\intro.cs" />
     <Compile Include="Assets\samplescene_assets\playermovement.cs" />
+    <Compile Include="Assets\distance_checker2.cs" />
     <Compile Include="Assets\click_end.cs" />
     <Compile Include="Assets\Scripts\Note.cs" />
     <Compile Include="Assets\scene4_assets\block4.cs" />
     <Compile Include="Assets\close_enough.cs" />
     <Compile Include="Assets\Scripts\PPText.cs" />
+    <Compile Include="Assets\block5.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\Sheet1.txt" />
